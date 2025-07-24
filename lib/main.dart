@@ -10,7 +10,7 @@ void main() async {
     title: 'Telemedicina',
     debugShowCheckedModeBanner: false,
     getPages: AppPages.routes,
-    initialRoute: Routes.SPLASH,
+    initialRoute: RoutesApp.SPLASH,
     theme: appThemeData,
   ));
 }

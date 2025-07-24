@@ -6,46 +6,53 @@ import 'package:flutter_crise/components/text.component.dart';
 import 'package:get/get.dart';
 import 'package:telemedicina/app/config/colors/colors.dart';
 import 'package:telemedicina/app/modules/home/controller/home.controller.dart';
+import 'package:telemedicina/app/routers/app_routers.dart';
 
 class HomePage extends GetView<HomeController> {
+  HomeController ctrl = Get.put(HomeController());
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(
-      children: [
-        Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-            Color.fromARGB(255, 232, 236, 255),
-            Color.fromARGB(255, 153, 240, 255)
-          ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
-        ),
-        BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-          child: Container(color: Colors.white.withOpacity(0.1)),
-        ),
-        SafeArea(
-            child: Padding(
-                padding: EdgeInsets.all(8),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      toolbar(),
-                      const SizedBox(height: 8),
-                      cardChat(),
-                      const SizedBox(height: 8),
-                      cardCalendar(),
-                      const SizedBox(height: 8),
-                      cardSite(),
-                      const SizedBox(height: 8),
-                      cardCompromissos(),
-                      const SizedBox(height: 8),
-                      cardTasks()
-                    ],
-                  ),
-                )))
-      ],
-    ));
+    return GetBuilder(
+        init: ctrl,
+        builder: (_) {
+          return Scaffold(
+              body: Stack(
+            children: [
+              Container(
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                  Color.fromARGB(255, 232, 236, 255),
+                  Color.fromARGB(255, 153, 240, 255)
+                ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+              ),
+              BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                child: Container(color: Colors.white.withOpacity(0.1)),
+              ),
+              SafeArea(
+                  child: Padding(
+                      padding: EdgeInsets.all(8),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            toolbar(),
+                            const SizedBox(height: 8),
+                            cardChat(),
+                            const SizedBox(height: 8),
+                            cardCalendar(),
+                            const SizedBox(height: 8),
+                            cardSite(),
+                            const SizedBox(height: 8),
+                            cardCompromissos(),
+                            const SizedBox(height: 8),
+                            cardTasks()
+                          ],
+                        ),
+                      )))
+            ],
+          ));
+        });
   }
 }
 
@@ -242,98 +249,103 @@ Widget cardSite() {
 }
 
 Widget cardCompromissos() {
-  return Container(
-      decoration: BoxDecoration(
-          color: AppColor.light,
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                blurRadius: 12,
-                spreadRadius: 2,
-                offset: Offset(0, 6))
-          ]),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-              padding: EdgeInsets.all(8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.calendar_month, color: Colors.green),
-                      TextComponent(
-                        value: 'Próximos compromissos',
-                        fontWeight: FontWeight.w700,
-                        fontSize: 16,
-                      ),
-                    ],
-                  ),
-                  Icon(Icons.keyboard_arrow_down)
-                ],
-              )),
-          Divider(
-            height: 1,
-            color: AppColor.medium,
-          ),
-          Padding(
-              padding: EdgeInsets.all(8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.medication,
-                        color: Colors.green,
-                      ),
-                      TextComponent(
-                        value: 'Hoje',
-                        fontWeight: FontWeight.w700,
-                      )
-                    ],
-                  ),
-                  TextComponent(
-                    value: '09:00',
-                    fontWeight: FontWeight.w600,
-                  )
-                ],
-              )),
-          Padding(
-              padding: EdgeInsets.all(8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  TextComponent(value: 'Quimioterapia • Detalhe'),
-                  Row(
+  return InkWell(
+      onTap: () {
+        Get.toNamed(RoutesApp.DETAIL);
+      },
+      splashColor: AppColor.primary,
+      child: Container(
+          decoration: BoxDecoration(
+              color: AppColor.light,
+              borderRadius: const BorderRadius.all(Radius.circular(8)),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 12,
+                    spreadRadius: 2,
+                    offset: Offset(0, 6))
+              ]),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextComponent(value: 'Hospital H1'),
-                      Container(
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              color: Colors.green.withOpacity(0.2)),
-                          child: Padding(
-                            padding: EdgeInsets.all(3),
-                            child: Row(
-                              children: [
-                                Icon(Icons.calendar_month),
-                                TextComponent(
-                                  value: 'Confirmado',
-                                  fontWeight: FontWeight.w700,
-                                )
-                              ],
-                            ),
-                          ))
+                      Row(
+                        children: [
+                          Icon(Icons.calendar_month, color: Colors.green),
+                          TextComponent(
+                            value: 'Próximos compromissos',
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                          ),
+                        ],
+                      ),
+                      Icon(Icons.keyboard_arrow_down)
                     ],
-                  )
-                ],
-              ))
-        ],
-      ));
+                  )),
+              Divider(
+                height: 1,
+                color: AppColor.medium,
+              ),
+              Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.medication,
+                            color: Colors.green,
+                          ),
+                          TextComponent(
+                            value: 'Hoje',
+                            fontWeight: FontWeight.w700,
+                          )
+                        ],
+                      ),
+                      TextComponent(
+                        value: '09:00',
+                        fontWeight: FontWeight.w600,
+                      )
+                    ],
+                  )),
+              Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      TextComponent(value: 'Quimioterapia • Detalhe'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextComponent(value: 'Hospital H1'),
+                          Container(
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                  color: Colors.green.withOpacity(0.2)),
+                              child: Padding(
+                                padding: EdgeInsets.all(3),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.calendar_month),
+                                    TextComponent(
+                                      value: 'Confirmado',
+                                      fontWeight: FontWeight.w700,
+                                    )
+                                  ],
+                                ),
+                              ))
+                        ],
+                      )
+                    ],
+                  ))
+            ],
+          )));
 }
 
 Widget cardTasks() {

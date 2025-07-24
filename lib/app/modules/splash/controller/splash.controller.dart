@@ -11,7 +11,7 @@ class SplashController extends GetxController {
 
   counterNextPage() {
     Future.delayed(const Duration(seconds: 3)).then((d) {
-      Get.toNamed(Routes.HOME);
+      Get.toNamed(RoutesApp.HOME);
     });
   }
 }

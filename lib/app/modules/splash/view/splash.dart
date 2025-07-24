@@ -12,7 +12,7 @@ class SplashPage extends GetView<SplashController> {
         init: ctrl,
         builder: (controller) {
           return Scaffold(
-              backgroundColor: AppColor.primary,
+              backgroundColor: AppColor.light,
               body: SafeArea(
                   child: Center(
                 child: Container(
