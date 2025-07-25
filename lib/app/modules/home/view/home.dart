@@ -32,7 +32,7 @@ class HomePage extends GetView<HomeController> {
               ),
               SafeArea(
                   child: Padding(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
@@ -58,9 +58,9 @@ class HomePage extends GetView<HomeController> {
 
 Widget toolbar() {
   return Container(
-    padding: EdgeInsets.all(8),
-    decoration:
-        BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(16))),
+    padding: const EdgeInsets.all(8),
+    decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(16))),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -77,10 +77,14 @@ Widget toolbar() {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextComponent(value: 'Boa noite,'),
                 TextComponent(
-                    value: 'Maria Luisa',
+                    value: 'Boa noite,',
                     fontWeight: FontWeight.w600,
+                    color: AppColor.secondary),
+                TextComponent(
+                    value: 'Italo',
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.secondary,
                     fontSize: 22)
               ],
             ),
@@ -88,9 +92,14 @@ Widget toolbar() {
         ),
         Row(
           children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.call_outlined)),
             IconButton(
-                onPressed: () {}, icon: Icon(Icons.notifications_outlined))
+                icon: Icon(Icons.call_outlined, color: AppColor.secondary),
+                onPressed: () {}),
+            IconButton(
+              icon:
+                  Icon(Icons.notifications_outlined, color: AppColor.secondary),
+              onPressed: () {},
+            ),
           ],
         )
       ],
@@ -107,7 +116,7 @@ Widget cardChat() {
               color: Colors.black.withOpacity(0.1),
               blurRadius: 12,
               spreadRadius: 2,
-              offset: Offset(0, 6))
+              offset: const Offset(0, 6))
         ],
         color: AppColor.light,
         borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -117,14 +126,17 @@ Widget cardChat() {
         children: [
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             TextComponent(
-                value: 'Chat', fontWeight: FontWeight.w700, fontSize: 18),
+                value: 'Chat',
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+                color: AppColor.secondary),
             TextComponent(value: 'Tire dúvidas sobre o tratamento')
           ]),
           Column(children: [
             Icon(
-              Icons.chat_bubble,
-              size: 55,
-              color: AppColor.orange,
+              Icons.chat_outlined,
+              size: 40,
+              color: AppColor.primary,
             )
           ])
         ],
@@ -140,7 +152,7 @@ Widget cardCalendar() {
             color: Colors.black.withOpacity(0.1),
             blurRadius: 12,
             spreadRadius: 2,
-            offset: Offset(0, 6),
+            offset: const Offset(0, 6),
           )
         ],
         color: AppColor.light,
@@ -153,14 +165,15 @@ Widget cardCalendar() {
             TextComponent(
                 value: 'Agendar consulta',
                 fontWeight: FontWeight.w700,
+                color: AppColor.secondary,
                 fontSize: 18),
             TextComponent(value: 'Por especialidade e/ou médico')
           ]),
           Column(children: [
             Icon(
-              Icons.calendar_month,
-              size: 55,
-              color: AppColor.orange,
+              Icons.calendar_month_outlined,
+              size: 40,
+              color: AppColor.primary,
             )
           ])
         ],
@@ -172,7 +185,7 @@ Widget cardSite() {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Container(
-          padding: EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 20),
           width: 240,
           height: 90,
           decoration: BoxDecoration(
@@ -181,19 +194,19 @@ Widget cardSite() {
                     color: Colors.black.withOpacity(0.1),
                     blurRadius: 12,
                     spreadRadius: 2,
-                    offset: Offset(0, 6))
+                    offset: const Offset(0, 6))
               ],
               color: AppColor.light,
               borderRadius: const BorderRadius.all(Radius.circular(8))),
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   children: [
                     Padding(
-                        padding: EdgeInsets.only(left: 2),
+                        padding: const EdgeInsets.only(left: 2),
                         child: Image.network(
                           'https://whatthelogo.com/storage/logos/sus-sistema-unico-de-saude-150729.png',
                           fit: BoxFit.cover,
@@ -209,13 +222,13 @@ Widget cardSite() {
                             width: 30,
                             height: 30,
                             decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(100)),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(100)),
                                 border: Border.all(
-                                    color: AppColor.blue,
+                                    color: AppColor.primary,
                                     style: BorderStyle.solid)),
                             child: Icon(Icons.arrow_forward_ios,
-                                size: 16, color: AppColor.blue)))
+                                size: 16, color: AppColor.primary)))
                   ],
                 ),
               ],
@@ -230,17 +243,18 @@ Widget cardSite() {
                     color: Colors.black.withOpacity(0.1),
                     blurRadius: 12,
                     spreadRadius: 2,
-                    offset: Offset(0, 6))
+                    offset: const Offset(0, 6))
               ],
               color: AppColor.light,
               borderRadius: const BorderRadius.all(Radius.circular(8))),
           child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 children: [
-                  Icon(Icons.heart_broken),
+                  Icon(Icons.heart_broken, color: AppColor.secondary),
                   TextComponent(
                       value: 'Reportar \n sintomas',
+                      color: AppColor.secondary,
                       textAlign: TextAlign.center)
                 ],
               ))),
@@ -263,19 +277,22 @@ Widget cardCompromissos() {
                     color: Colors.black.withOpacity(0.1),
                     blurRadius: 12,
                     spreadRadius: 2,
-                    offset: Offset(0, 6))
+                    offset: const Offset(0, 6))
               ]),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.calendar_month, color: Colors.green),
+                          Icon(
+                            Icons.calendar_month,
+                            color: AppColor.primary,
+                          ),
                           TextComponent(
                             value: 'Próximos compromissos',
                             fontWeight: FontWeight.w700,
@@ -283,7 +300,7 @@ Widget cardCompromissos() {
                           ),
                         ],
                       ),
-                      Icon(Icons.keyboard_arrow_down)
+                      const Icon(Icons.keyboard_arrow_down)
                     ],
                   )),
               Divider(
@@ -297,9 +314,9 @@ Widget cardCompromissos() {
                     children: [
                       Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.medication,
-                            color: Colors.green,
+                            color: AppColor.primary,
                           ),
                           TextComponent(
                             value: 'Hoje',
@@ -314,7 +331,7 @@ Widget cardCompromissos() {
                     ],
                   )),
               Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -325,17 +342,19 @@ Widget cardCompromissos() {
                           TextComponent(value: 'Hospital H1'),
                           Container(
                               decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(8)),
-                                  color: Colors.green.withOpacity(0.2)),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(8)),
+                                  color: AppColor.primary.withOpacity(0.2)),
                               child: Padding(
-                                padding: EdgeInsets.all(3),
+                                padding: const EdgeInsets.all(3),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.calendar_month),
+                                    Icon(Icons.calendar_month,
+                                        color: AppColor.secondary),
                                     TextComponent(
                                       value: 'Confirmado',
                                       fontWeight: FontWeight.w700,
+                                      color: AppColor.secondary,
                                     )
                                   ],
                                 ),
@@ -351,27 +370,30 @@ Widget cardCompromissos() {
 Widget cardTasks() {
   return Container(
     decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
         color: AppColor.light,
         boxShadow: [
           BoxShadow(
               color: Colors.black.withOpacity(0.1),
               blurRadius: 12,
               spreadRadius: 2,
-              offset: Offset(0, 6)),
+              offset: const Offset(0, 6)),
         ]),
     child: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Column(
           children: [
             Padding(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.calendar_month, color: Colors.green),
+                        Icon(
+                          Icons.calendar_month,
+                          color: AppColor.primary,
+                        ),
                         TextComponent(
                           value: 'Tarefas a concluir',
                           fontWeight: FontWeight.w700,
@@ -379,7 +401,7 @@ Widget cardTasks() {
                         ),
                       ],
                     ),
-                    Icon(Icons.keyboard_arrow_down)
+                    const Icon(Icons.keyboard_arrow_down)
                   ],
                 )),
             Divider(
@@ -387,13 +409,13 @@ Widget cardTasks() {
               color: AppColor.medium,
             ),
             Padding(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: Row(
                   children: [
                     Row(
                       children: [
                         Padding(
-                            padding: EdgeInsets.only(bottom: 15),
+                            padding: const EdgeInsets.only(bottom: 15),
                             child: Icon(Icons.check_circle_outline,
                                 color: AppColor.medium)),
                         const SizedBox(width: 2),

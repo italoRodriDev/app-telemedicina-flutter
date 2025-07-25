@@ -17,7 +17,7 @@ class SplashPage extends GetView<SplashController> {
                   child: Center(
                 child: Container(
                   child: Image.network(
-                      'https://www.unimedjp.com.br/imagens/unimedjoaopessoa.png',
+                      'https://whatthelogo.com/storage/logos/sus-sistema-unico-de-saude-150729.png',
                       width: 150),
                 ),
               )));
