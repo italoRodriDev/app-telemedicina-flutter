@@ -182,56 +182,58 @@ class HomePage extends GetView<HomeController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-            padding: const EdgeInsets.only(top: 20),
-            width: 240,
-            height: 90,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 12,
-                      spreadRadius: 2,
-                      offset: const Offset(0, 6))
-                ],
-                color: AppColor.light,
-                borderRadius: const BorderRadius.all(Radius.circular(8))),
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+        Expanded(
+            child: Container(
+                margin: const EdgeInsets.only(right: 10),
+                padding: const EdgeInsets.only(top: 20, right: 10),
+                width: 240,
+                height: 90,
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 12,
+                          spreadRadius: 2,
+                          offset: const Offset(0, 6))
+                    ],
+                    color: AppColor.light,
+                    borderRadius: const BorderRadius.all(Radius.circular(8))),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                          padding: const EdgeInsets.only(left: 2),
-                          child: Image.asset(
-                            'assets/images/logo_sus.png',
-                            fit: BoxFit.cover,
-                            width: 100,
-                          ))
+                      Column(
+                        children: [
+                          Padding(
+                              padding: const EdgeInsets.only(left: 2),
+                              child: Image.asset(
+                                'assets/images/logo_sus.png',
+                                fit: BoxFit.cover,
+                                width: 100,
+                              ))
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          InkWell(
+                              onTap: () {},
+                              child: Container(
+                                  width: 30,
+                                  height: 30,
+                                  decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.all(
+                                          Radius.circular(100)),
+                                      border: Border.all(
+                                          color: AppColor.primary,
+                                          style: BorderStyle.solid)),
+                                  child: Icon(Icons.arrow_forward_ios,
+                                      size: 16, color: AppColor.primary)))
+                        ],
+                      ),
                     ],
                   ),
-                  Column(
-                    children: [
-                      InkWell(
-                          onTap: () {},
-                          child: Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(100)),
-                                  border: Border.all(
-                                      color: AppColor.primary,
-                                      style: BorderStyle.solid)),
-                              child: Icon(Icons.arrow_forward_ios,
-                                  size: 16, color: AppColor.primary)))
-                    ],
-                  ),
-                ],
-              ),
-            )),
+                ))),
         Container(
             width: 90,
             height: 90,
@@ -349,55 +351,60 @@ class HomePage extends GetView<HomeController> {
                                         )
                                       ],
                                     )),
-                                Padding(
-                                    padding: const EdgeInsets.all(8),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.stretch,
-                                      children: [
-                                        TextComponent(
-                                            value:
-                                                'Quimioterapia • Ver detalhes'),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            TextComponent(
-                                              value: 'Hospital H1',
-                                              color: AppColor.secondary,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                            Container(
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        const BorderRadius.all(
-                                                            Radius.circular(8)),
-                                                    color: AppColor.primary
-                                                        .withOpacity(0.2)),
-                                                child: Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(3),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(Icons.calendar_month,
+                                for (var i in ctrl.dataCommitments)
+                                  Padding(
+                                      padding: const EdgeInsets.all(8),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        children: [
+                                          TextComponent(
+                                              value:
+                                                  '${i['title']} • Ver detalhes'),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              TextComponent(
+                                                value: 'Hospital H1',
+                                                color: AppColor.secondary,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                              Container(
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          const BorderRadius
+                                                                  .all(
+                                                              Radius.circular(
+                                                                  8)),
+                                                      color: AppColor.primary
+                                                          .withOpacity(0.2)),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(3),
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                            Icons
+                                                                .calendar_month,
+                                                            color: AppColor
+                                                                .secondary,
+                                                            size: 14),
+                                                        TextComponent(
+                                                          value: i['status'],
+                                                          fontWeight:
+                                                              FontWeight.w700,
                                                           color: AppColor
                                                               .secondary,
-                                                          size: 14),
-                                                      TextComponent(
-                                                        value: 'Confirmado',
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        color:
-                                                            AppColor.secondary,
-                                                        fontSize: 12,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ))
-                                          ],
-                                        )
-                                      ],
-                                    ))
+                                                          fontSize: 12,
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ))
+                                            ],
+                                          )
+                                        ],
+                                      ))
                               ],
                             ))))
               ],
@@ -463,41 +470,47 @@ class HomePage extends GetView<HomeController> {
                         onTap: () {},
                         child: Column(
                           children: [
-                            Padding(
-                                padding: const EdgeInsets.all(8),
-                                child: Row(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 15),
-                                            child: Icon(
-                                                Icons.check_circle_outline,
-                                                color: AppColor.medium)),
-                                        const SizedBox(width: 2),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            TextComponent(
-                                              value: 'Confirmar presença',
-                                              fontWeight: FontWeight.w600,
-                                              textAlign: TextAlign.justify,
-                                              fontSize: 16,
-                                            ),
-                                            TextComponent(
-                                              value: 'Quimioterapia',
-                                              fontWeight: FontWeight.w400,
-                                              textAlign: TextAlign.justify,
-                                              fontSize: 14,
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                )),
+                            for (var i in ctrl.dataTasks)
+                              Padding(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Row(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Padding(
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 15),
+                                              child: Icon(
+                                                  Icons.check_circle_outline,
+                                                  color: i['checked'] == false
+                                                      ? AppColor.medium
+                                                      : AppColor.primary
+                                                          .withOpacity(0.5))),
+                                          const SizedBox(width: 2),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              TextComponent(
+                                                value: i['checked'] == false
+                                                    ? 'Confirmar presença'
+                                                    : 'Presença confirmada',
+                                                fontWeight: FontWeight.w600,
+                                                textAlign: TextAlign.justify,
+                                                fontSize: 16,
+                                              ),
+                                              TextComponent(
+                                                value: i['title'],
+                                                fontWeight: FontWeight.w400,
+                                                textAlign: TextAlign.justify,
+                                                fontSize: 14,
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  )),
                           ],
                         )),
                   ))

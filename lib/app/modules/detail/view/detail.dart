@@ -48,7 +48,7 @@ class DetailPage extends GetView<DetailController> {
                   cardInfo(
                       icon: Icons.chat_outlined,
                       title: 'Local',
-                      description: 'Hospital H1'),
+                      description: 'Hospital Sírio-Libanês'),
                   const SizedBox(height: 8),
                   cardInfo(
                       icon: Icons.bookmark_outline_outlined,
