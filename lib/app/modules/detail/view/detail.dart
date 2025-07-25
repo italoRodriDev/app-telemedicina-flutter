@@ -124,7 +124,7 @@ class DetailPage extends GetView<DetailController> {
                   const SizedBox(height: 8),
                   cardInfo(
                       icon: Icons.chat_bubble_outline,
-                      title: 'Tele consulta Hospital H1',
+                      title: 'Teleconsulta Sírio-Libanês',
                       description: 'Aguardando autorização'),
                   const SizedBox(height: 8),
                   Row(

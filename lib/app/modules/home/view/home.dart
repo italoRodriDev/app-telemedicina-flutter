@@ -366,7 +366,7 @@ class HomePage extends GetView<HomeController> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               TextComponent(
-                                                value: 'Hospital H1',
+                                                value: i['location'],
                                                 color: AppColor.secondary,
                                                 fontWeight: FontWeight.w700,
                                               ),
