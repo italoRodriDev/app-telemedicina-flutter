@@ -16,9 +16,7 @@ class SplashPage extends GetView<SplashController> {
               body: SafeArea(
                   child: Center(
                 child: Container(
-                  child: Image.network(
-                      'https://whatthelogo.com/storage/logos/sus-sistema-unico-de-saude-150729.png',
-                      width: 150),
+                  child: Image.asset('assets/images/logo_sus.png', width: 150),
                 ),
               )));
         });

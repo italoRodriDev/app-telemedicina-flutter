@@ -68,8 +68,7 @@ class HomePage extends GetView<HomeController> {
               const Padding(
                 padding: EdgeInsets.only(right: 8),
                 child: AvatarComponent(
-                  imageUrl:
-                      'https://img.freepik.com/fotos-premium/emoji-de-memoji-de-homem-sorrindo-e-bonito-em-fundo-branco_826801-6987.jpg?semt=ais_hybrid&w=740',
+                  imageUrl: 'assets/images/avatar.jpg',
                   radius: 25,
                 ),
               ),
@@ -206,8 +205,8 @@ class HomePage extends GetView<HomeController> {
                     children: [
                       Padding(
                           padding: const EdgeInsets.only(left: 2),
-                          child: Image.network(
-                            'https://whatthelogo.com/storage/logos/sus-sistema-unico-de-saude-150729.png',
+                          child: Image.asset(
+                            'assets/images/logo_sus.png',
                             fit: BoxFit.cover,
                             width: 100,
                           ))
