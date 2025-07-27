@@ -318,41 +318,40 @@ class HomePage extends GetView<HomeController> {
                 ),
                 Visibility(
                     visible: ctrl.isVisibleCommitments,
-                    child: Material(
-                        child: InkWell(
-                            onTap: () {
-                              Get.toNamed(RoutesApp.DETAIL);
-                            },
-                            splashColor: AppColor.primary,
-                            child: Column(
+                    child: Column(
+                      children: [
+                        Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Padding(
-                                    padding: const EdgeInsets.all(8),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.medication,
-                                              color: AppColor.primary,
-                                            ),
-                                            TextComponent(
-                                              value: 'Hoje',
-                                              fontWeight: FontWeight.w700,
-                                            )
-                                          ],
-                                        ),
-                                        TextComponent(
-                                          value: '09:00 hrs',
-                                          color: AppColor.secondary,
-                                          fontWeight: FontWeight.w800,
-                                        )
-                                      ],
-                                    )),
-                                for (var i in ctrl.dataCommitments)
-                                  Padding(
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.medication,
+                                      color: AppColor.primary,
+                                    ),
+                                    TextComponent(
+                                      value: 'Hoje',
+                                      fontWeight: FontWeight.w700,
+                                    )
+                                  ],
+                                ),
+                                TextComponent(
+                                  value: '09:00 hrs',
+                                  color: AppColor.secondary,
+                                  fontWeight: FontWeight.w800,
+                                )
+                              ],
+                            )),
+                        for (var i in ctrl.dataCommitments)
+                          Material(
+                              child: InkWell(
+                                  onTap: () {
+                                    Get.toNamed(RoutesApp.DETAIL);
+                                  },
+                                  splashColor: AppColor.primary,
+                                  child: Padding(
                                       padding: const EdgeInsets.all(8),
                                       child: Column(
                                         crossAxisAlignment:
@@ -404,9 +403,9 @@ class HomePage extends GetView<HomeController> {
                                             ],
                                           )
                                         ],
-                                      ))
-                              ],
-                            ))))
+                                      ))))
+                      ],
+                    ))
               ],
             )));
   }
