@@ -60,7 +60,7 @@ class _ToolbarHomeComponentState extends State<ToolbarHomeComponent>
       builder: (context, _) {
         return Stack(
           children: [
-            Container(height: 280), // altura total da área
+            Container(height: 320), // altura total da área
 
             // Card verde animado
             AnimatedContainer(
@@ -80,8 +80,8 @@ class _ToolbarHomeComponentState extends State<ToolbarHomeComponent>
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           Text("Olá, ",
                               style:
                                   TextStyle(fontSize: 14, color: Colors.white)),
@@ -161,85 +161,77 @@ class _ToolbarHomeComponentState extends State<ToolbarHomeComponent>
 
             // Card de check-in
             Positioned(
-              top: 170,
-              right: 30,
-              left: 30,
-              child: Container(
-                height: 120,
-                width: 300,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(16)),
-                ),
-                child: Stack(
-                  children: [
-                    Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.all(Radius.circular(24)),
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/images/background_card_checkin_home.svg',
-                        width: 300,
-                      ),
-                    ),
-                    Positioned(
+                top: 170,
+                right: 30,
+                left: 30,
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  InkWell(
+                      onTap: () {
+                        widget.onPressedCheckIn();
+                      },
                       child: Container(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(16)),
+                        ),
+                        child: Stack(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                TextComponent(
-                                  value: 'Check-in da saúde',
-                                  color: AppColor.tertiary,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w800,
+                            Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.black,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(24)),
+                              ),
+                              child: SvgPicture.asset(
+                                'assets/images/background_card_checkin_home.svg',
+                              ),
+                            ),
+                            Positioned(
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    TextComponent(
+                                      value: 'Check-in da saúde',
+                                      color: AppColor.tertiary,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w800,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                            'assets/images/checkin_ativo.svg',
+                                            width: 14),
+                                        const SizedBox(width: 2),
+                                        TextComponent(
+                                            value: 'Entrada',
+                                            fontSize: 14,
+                                            color: AppColor.tertiary),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset(
+                                            'assets/images/checkin_inativo.svg',
+                                            width: 14),
+                                        const SizedBox(width: 2),
+                                        TextComponent(
+                                            value: 'Saída',
+                                            fontSize: 14,
+                                            color: AppColor.neutral1),
+                                      ],
+                                    )
+                                  ],
                                 ),
-                                Padding(
-                                    padding: EdgeInsets.only(right: 10, top: 8),
-                                    child: InkWell(
-                                        onTap: () {
-                                          widget.onPressedCheckIn();
-                                        },
-                                        child: SvgPicture.asset(
-                                            'assets/images/seta_checkin_card.svg')))
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                SvgPicture.asset(
-                                    'assets/images/checkin_ativo.svg',
-                                    width: 14),
-                                const SizedBox(width: 2),
-                                TextComponent(
-                                    value: 'Entrada',
-                                    fontSize: 14,
-                                    color: AppColor.tertiary),
-                              ],
-                            ),
-                            const SizedBox(height: 8),
-                            Row(
-                              children: [
-                                SvgPicture.asset(
-                                    'assets/images/checkin_inativo.svg',
-                                    width: 14),
-                                const SizedBox(width: 2),
-                                TextComponent(
-                                    value: 'Saída',
-                                    fontSize: 14,
-                                    color: AppColor.neutral1),
-                              ],
+                              ),
                             )
                           ],
                         ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+                      )),
+                ])),
           ],
         );
       },
