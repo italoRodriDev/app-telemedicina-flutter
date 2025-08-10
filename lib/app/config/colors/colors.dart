@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class AppColor {
   static Color background = const Color.fromARGB(255, 255, 255, 255);
   static Color textColor = const Color.fromARGB(255, 0, 0, 0);
-  static Color primary = Color.fromARGB(255, 2, 151, 145);
+  static Color primary = Color.fromARGB(255, 6, 154, 92);
   static Color secondary = Color.fromARGB(255, 20, 37, 84);
-  static Color tertiary = Color.fromARGB(255, 255, 196, 0);
+  static Color tertiary = Color.fromARGB(255, 178, 209, 75);
   static Color success = Color.fromARGB(255, 61, 255, 171);
   static Color warning = const Color.fromARGB(255, 255, 196, 9);
   static Color danger = const Color.fromARGB(255, 255, 0, 96);
@@ -25,4 +25,6 @@ class AppColor {
   static Color pupple = const Color.fromRGBO(49, 29, 110, 1);
   static Color orangeSecondary = const Color.fromRGBO(239, 181, 37, 1);
   static Color red = const Color.fromRGBO(248, 0, 17, 1);
+  static Color neutral1 = const Color.fromARGB(255, 53, 113, 110);
+  static Color neutral2 = const Color.fromARGB(255, 205, 233, 221);
 }
