@@ -33,7 +33,7 @@ class _ToolbarHomeComponentState extends State<ToolbarHomeComponent>
     );
 
     _textSlide = Tween<Offset>(
-      begin: const Offset(0, 0.5), // começa mais para baixo
+      begin: const Offset(0, 0.9), // começa mais para baixo
       end: Offset.zero, // posição normal
     ).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
